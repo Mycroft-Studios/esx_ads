@@ -29,7 +29,7 @@ RegisterServerEvent('global:cardealerad')
 AddEventHandler('global:cardealerad', function(args)
 	local xPlayers = ESX.GetPlayers()
 	for i=1, #xPlayers, 1 do
-		TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], 'Los Santos Customs', 'Advertisement', table.concat(args, " "), 'CHAR_CARSITE', 1)
+		TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], 'Los Santos Customs', 'Advertisement', table.concat(args, " "), 'CHAR_LS_CUSTOMS', 1)
 	end
 end)
 
@@ -58,7 +58,7 @@ AddEventHandler("advert:removemoney", function(index)
     if playerMoney >= amount then
         removeMoney(source, amount)
     else
-       	exports['mythic_notify']:DoHudText('error', 'You dont have enough money.')
+		ESX.ShowNotification('You dont have enough money.')
     end
 end)
 

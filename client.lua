@@ -2,8 +2,8 @@ ESX = nil
 
 ----- Language Config -----
 
-local payed = "You payed $200 for the ad."
-local denied = "You don't have permission for this."
+local paid = "You paid ~r~$200~w~ for the ad."
+local denied = "Access denied."
 
 -- Get player job
 Citizen.CreateThread(function()
@@ -22,38 +22,38 @@ RegisterCommand('jobad', function(source, args)
 	if PlayerData.job.name == 'taxi' then
 		TriggerServerEvent('global:taxiad', args)
 		TriggerServerEvent('advert:removemoney')
- 		exports['mythic_notify']:DoHudText('inform', payed)
+		ESX.ShowNotification(paid)
 	elseif PlayerData.job.name == 'mechanic' then
 		TriggerServerEvent('global:mechanicad', args)
 		TriggerServerEvent('advert:removemoney')
- 		exports['mythic_notify']:DoHudText('inform', payed)
+		ESX.ShowNotification(paid)
  	elseif PlayerData.job.name == 'cardealer' then
 		TriggerServerEvent('global:cardealerad', args)
 		TriggerServerEvent('advert:removemoney')
- 		exports['mythic_notify']:DoHudText('inform', payed)
+		ESX.ShowNotification(paid)
 	else
-		exports['mythic_notify']:DoHudText('error', denied)
+		ESX.ShowNotification(denied)
 	end
 end)
 
 -- Global ad
 RegisterCommand('ad', function(source, args)
 	if PlayerData.job.name == 'unemployed' then
-		exports['mythic_notify']:DoHudText('error', denied)
+		ESX.ShowNotification(denied)
 	else
  		TriggerServerEvent('global:globalad', args)
  		TriggerServerEvent('advert:removemoney')
- 		exports['mythic_notify']:DoHudText('inform', payed)
+		ESX.ShowNotification(paid)
 	end
 end)
 
 -- Darkweb ad
 RegisterCommand('darkad', function(source, args)
 	if PlayerData.job.name == 'police' then
-		exports['mythic_notify']:DoHudText('error', denied)
+		ESX.ShowNotification(denied)
 	else
  		TriggerServerEvent('global:darkwebad', args)
  		TriggerServerEvent('advert:removemoney')
- 		exports['mythic_notify']:DoHudText('inform', payed)
+		ESX.ShowNotification(paid)
 	end
 end)
