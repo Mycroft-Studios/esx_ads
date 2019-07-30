@@ -24,6 +24,15 @@ AddEventHandler('global:mechanicad', function(args)
 	end
 end)
 
+-- Cardealer ad
+RegisterServerEvent('global:cardealerad')
+AddEventHandler('global:cardealerad', function(args)
+	local xPlayers = ESX.GetPlayers()
+	for i=1, #xPlayers, 1 do
+		TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], 'Los Santos Customs', 'Advertisement', table.concat(args, " "), 'CHAR_LS_CUSTOMS', 1)
+	end
+end)
+
 -- Global ad
 RegisterServerEvent('global:globalad')
 AddEventHandler('global:globalad', function(args)

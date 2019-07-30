@@ -27,6 +27,10 @@ RegisterCommand('jobad', function(source, args)
 		TriggerServerEvent('global:mechanicad', args)
 		TriggerServerEvent('advert:removemoney')
  		exports['mythic_notify']:DoHudText('inform', payed)
+ 	elseif PlayerData.job.name == 'cardealer' then
+		TriggerServerEvent('global:cardealerad', args)
+		TriggerServerEvent('advert:removemoney')
+ 		exports['mythic_notify']:DoHudText('inform', payed)
 	else
 		exports['mythic_notify']:DoHudText('error', denied)
 	end
