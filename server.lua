@@ -46,7 +46,7 @@ AddEventHandler("advert:removemoney", function(index)
     if playerMoney >= amount then
         removeMoney(source, amount)
     else
-       	exports['mythic_notify']:DoHudText('error', 'Sul ei ole reklaami jaoks raha.')
+       	exports['mythic_notify']:DoHudText('error', 'You dont have enough money.')
     end
 end)
 
