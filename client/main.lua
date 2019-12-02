@@ -32,7 +32,7 @@ end)
 
 -- Dark Web Advertisement
 RegisterCommand('darkad', function(source, args)
-	if Config.DenyPolice then
+	if Config.DenyPolice and ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
 		ESX.ShowNotification(_U('no_password'))
 	else	
 		TriggerServerEvent('esx_ads:darkad', args)
